@@ -76,11 +76,18 @@ mysql -u root -p < database/schema.sql
 
 ## Endpoints de la API
 
-_Pendientes de diseñar en la Fase 3._
+| Método | Endpoint | Qué hace | Devuelve |
+|---|---|---|---|
+| GET | `/api/ejercicios.php` | Lista el catálogo de ejercicios | Array de ejercicios |
+| GET | `/api/entrenamientos.php` | Lista entrenamientos (resumen) | Array de {id, fecha, notas} |
+| GET | `/api/entrenamientos.php?id=5` | Detalle de un entrenamiento | Objeto con sus series incluidas |
+| POST | `/api/entrenamientos.php` | Crea un entrenamiento con sus series | {id del nuevo entrenamiento} |
+| PUT | `/api/entrenamientos.php?id=5` | Reemplaza un entrenamiento entero (fecha, notas y todas sus series) | Confirmación |
+| DELETE | `/api/entrenamientos.php?id=5` | Borra un entrenamiento (y sus series, en cascada) | Confirmación |
+| GET | `/api/progreso.php?ejercicio_id=1` | Progresión de peso en ese ejercicio a lo largo del tiempo | Array de {fecha, peso} |
+| GET | `/api/peso_corporal.php` | Histórico de peso corporal | Array de {fecha, peso} |
+| POST | `/api/peso_corporal.php` | Registra un peso corporal nuevo | {id del nuevo registro} |
 
-| Método | Endpoint | Descripción |
-|---|---|---|
-| — | — | — |
 
 ## Créditos
 
@@ -93,7 +100,7 @@ están licenciadas bajo [CC BY-SA 4.0](https://creativecommons.org/licenses/by-s
 
 - [x] Fase 1 — Análisis y requisitos
 - [x] Fase 2 — Diseño de base de datos
-- [ ] Fase 3 — Diseño de la API
+- [x] Fase 3 — Diseño de la API
 - [ ] Fase 4 — Backend (PHP)
 - [ ] Fase 5 — Frontend (JavaScript)
 - [ ] Fase 6 — Pruebas
