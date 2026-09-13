@@ -22,7 +22,7 @@ services:
       - db
 
   backend:
-    image: php:8.2-apache
+    build: ./backend
     volumes:
       - ./backend:/var/www/html:Z
     ports:
